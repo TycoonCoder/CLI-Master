@@ -1,0 +1,131 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    @apply min-h-screen font-sans;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-primary-800;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent-500 text-white font-semibold py-2.5 px-5 rounded-md;
+    @apply hover:bg-accent-600 transition-all duration-200;
+    @apply border border-accent-600;
+    @apply active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-primary-700 text-foreground font-semibold py-2.5 px-5 rounded-md;
+    @apply border border-primary-600;
+    @apply hover:bg-primary-600 transition-all duration-200;
+    @apply active:scale-95;
+  }
+  
+  .btn-danger {
+    @apply bg-danger text-white font-semibold py-2.5 px-5 rounded-md;
+    @apply border border-danger/50;
+    @apply hover:bg-danger/90 transition-all duration-200;
+    @apply active:scale-95;
+  }
+  
+  .card {
+    @apply bg-primary-900 border border-primary-700 rounded-lg;
+    @apply shadow-lg;
+  }
+  
+  .terminal-window {
+    @apply bg-terminal-bg text-terminal-text rounded-lg overflow-hidden;
+    @apply border border-primary-700;
+    @apply font-mono;
+  }
+  
+  .lesson-card {
+    @apply bg-primary-900 border border-primary-700 rounded-lg p-4;
+    @apply hover:border-accent-500 transition-colors duration-200;
+  }
+  
+  .progress-bar {
+    @apply h-2 bg-primary-700 rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-accent-500 rounded-full;
+    @apply transition-all duration-500 ease-out;
+  }
+  
+  .prompt {
+    @apply text-terminal-prompt;
+  }
+  
+  .path {
+    @apply text-terminal-path;
+  }
+  
+  .command-success {
+    @apply text-terminal-success;
+  }
+  
+  .command-error {
+    @apply text-terminal-error;
+  }
+  
+  /* GitHub-like code blocks */
+  .code-block {
+    @apply bg-primary-900 border border-primary-700 rounded-md p-4;
+    @apply font-mono text-sm;
+  }
+  
+  /* Markdown-like styles */
+  .markdown h1 {
+    @apply text-2xl font-bold mb-4;
+  }
+  
+  .markdown h2 {
+    @apply text-xl font-semibold mb-3 mt-6;
+  }
+  
+  .markdown p {
+    @apply mb-4;
+  }
+  
+  .markdown ul {
+    @apply list-disc pl-5 mb-4;
+  }
+  
+  .markdown li {
+    @apply mb-2;
+  }
+  
+  .markdown code {
+    @apply bg-primary-800 text-terminal-success px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+  
+  .markdown pre {
+    @apply bg-primary-900 border border-primary-700 rounded-md p-4 overflow-x-auto my-4;
+  }
+}
