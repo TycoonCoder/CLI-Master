@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 interface SpinWheelProps {
-  onSpinComplete: (bitsWon: number, xpBoost: boolean) => void;
+  onSpinComplete?: (bitsWon: number, xpBoost: boolean) => void;
   onClose?: () => void;
   onRedirect?: () => void;
 }
@@ -44,7 +44,9 @@ const SpinWheel: React.FC<SpinWheelProps> = ({ onSpinComplete, onClose, onRedire
       setResult(selectedPrize);
       
       // Notify parent of result
-      onSpinComplete(selectedPrize.bits, selectedPrize.xpBoost);
+      if (onSpinComplete) {
+        onSpinComplete(selectedPrize.bits, selectedPrize.xpBoost);
+      }
     }, 3000);
   };
 

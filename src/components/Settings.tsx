@@ -41,8 +41,8 @@ const Settings: React.FC<SettingsProps> = ({ onResetProgress, onClose, onOpenSho
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 animate-fade-in">
-      <div className="card max-w-md w-full p-6 animate-slide-up">
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-start md:justify-center z-50 p-3 md:p-4 animate-fade-in overflow-y-auto">
+      <div className="card max-w-md w-full p-4 md:p-6 animate-slide-up my-auto md:my-0">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold text-foreground">Settings</h2>
           <button

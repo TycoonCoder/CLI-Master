@@ -12,8 +12,9 @@ interface QuizQuestion {
 }
 
 interface QuizProps {
-  lessonId: string;
-  onComplete: (score: number, total: number) => void;
+  lessonId?: string;
+  completedLessons?: Set<string>;
+  onComplete?: (score: number, total: number) => void;
   onClose: () => void;
 }
 
@@ -119,11 +120,13 @@ const QuizSystem: React.FC<QuizProps> = ({ lessonId, onComplete, onClose }) => {
     // Select questions based on lesson
     let selectedQuestions: QuizQuestion[] = [];
     
-    if (lessonId.includes('lesson-1') || lessonId.includes('lesson-2') || lessonId.includes('lesson-3')) {
+    const lessonIdSafe = lessonId || 'mixed';
+    
+    if (lessonIdSafe.includes('lesson-1') || lessonIdSafe.includes('lesson-2') || lessonIdSafe.includes('lesson-3')) {
       selectedQuestions = [...quizBank['navigation']];
-    } else if (lessonId.includes('lesson-4') || lessonId.includes('lesson-5') || lessonId.includes('lesson-6')) {
+    } else if (lessonIdSafe.includes('lesson-4') || lessonIdSafe.includes('lesson-5') || lessonIdSafe.includes('lesson-6')) {
       selectedQuestions = [...quizBank['file-operations']];
-    } else if (lessonId.includes('lesson-11') || lessonId.includes('lesson-12') || lessonId.includes('lesson-13')) {
+    } else if (lessonIdSafe.includes('lesson-11') || lessonIdSafe.includes('lesson-12') || lessonIdSafe.includes('lesson-13')) {
       selectedQuestions = [...quizBank['text-processing']];
     } else {
       // Mixed quiz
@@ -195,7 +198,9 @@ const QuizSystem: React.FC<QuizProps> = ({ lessonId, onComplete, onClose }) => {
     
     setScore(calculatedScore);
     setIsSubmitted(true);
-    onComplete(calculatedScore, questions.length);
+    if (onComplete) {
+      onComplete(calculatedScore, questions.length);
+    }
   };
 
   const formatTime = (seconds: number) => {

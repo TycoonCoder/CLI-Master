@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 interface ShopProps {
   bits: number;
   hasXpBoost: boolean;
-  onPurchase: (itemId: string, cost: number) => boolean;
+  onPurchase: (itemId: string, cost: number) => void;
   onClose: () => void;
 }
 
@@ -68,14 +68,9 @@ const Shop: React.FC<ShopProps> = ({ bits, hasXpBoost, onPurchase, onClose }) =>
       return;
     }
     
-    const success = onPurchase(itemId, cost);
-    if (success) {
-      setPurchaseMessage('Purchase successful!');
-      setTimeout(() => setPurchaseMessage(''), 2000);
-    } else {
-      setPurchaseMessage('Purchase failed. Try again.');
-      setTimeout(() => setPurchaseMessage(''), 2000);
-    }
+    onPurchase(itemId, cost);
+    setPurchaseMessage('Purchase successful!');
+    setTimeout(() => setPurchaseMessage(''), 2000);
   };
 
   return (

@@ -17,7 +17,7 @@ interface ReviewItem {
 
 interface ReviewSystemProps {
   completedLessons: Set<string>;
-  onComplete: (lessonId: string, challengeId: string, success: boolean) => void;
+  onComplete?: (lessonId: string, challengeId: string, success: boolean) => void;
   onClose: () => void;
   onSessionComplete?: (correct: number, total: number) => void;
 }
@@ -126,7 +126,9 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ completedLessons, onComplet
       };
       setReviewItems(updatedItems);
       
-      onComplete(currentItem.lessonId, currentItem.challengeId, true);
+      if (onComplete) {
+        onComplete(currentItem.lessonId, currentItem.challengeId, true);
+      }
     } else {
       setTerminalOutput(prev => [...prev, `❌ Not quite. The command was: ${currentItem.command}`]);
       setStats(prev => ({ ...prev, total: prev.total + 1 }));
@@ -141,7 +143,9 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ completedLessons, onComplet
       };
       setReviewItems(updatedItems);
       
-      onComplete(currentItem.lessonId, currentItem.challengeId, false);
+      if (onComplete) {
+        onComplete(currentItem.lessonId, currentItem.challengeId, false);
+      }
     }
 
     setTimeout(() => {

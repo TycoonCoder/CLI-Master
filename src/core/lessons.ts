@@ -9,9 +9,9 @@ export const lessons: Lesson[] = [
     challenges: [
       {
         id: 'challenge-1',
-        description: 'First, let\'s learn about the terminal. The terminal is a text-based interface to your computer. You type commands and see results.',
-        expectedCommand: '',
-        hints: ['Press Enter to continue'],
+        description: 'The command prompt shows your username and current location. Try typing "pwd" (Print Working Directory) to see where you are.',
+        expectedCommand: 'pwd',
+        hints: ['Type "pwd" and press Enter'],
         fileSystemState: {
           currentPath: '/home/user',
           files: [],
@@ -21,11 +21,11 @@ export const lessons: Lesson[] = [
       },
       {
         id: 'challenge-2',
-        description: 'The command prompt shows your username and current location. Try typing "pwd" (Print Working Directory) to see where you are.',
+        description: 'Great! Now let\'s practice. What command would you use to find your current directory?',
         expectedCommand: 'pwd',
-        hints: ['Type "pwd" and press Enter'],
+        hints: ['Remember: "pwd" shows your current location'],
         fileSystemState: {
-          currentPath: '/home/user',
+          currentPath: '/home/user/documents',
           files: [],
           directories: [],
           environment: { USER: 'user' }

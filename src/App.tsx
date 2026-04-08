@@ -413,33 +413,30 @@ function App() {
       </a>
       
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-primary-900/95 backdrop-blur-sm border-b border-primary-800">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-primary-900/95 backdrop-blur-sm border-b border-primary-800 overflow-hidden">
+        <div className="container mx-auto px-3 py-2 md:px-4 md:py-3">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-0">
             {/* Logo and Title */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center justify-between md:justify-start">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center" aria-hidden="true">
-                  <span className="text-white font-bold text-xl">💻</span>
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-accent-500 rounded-lg flex items-center justify-center" aria-hidden="true">
+                  <span className="text-white font-bold text-lg md:text-xl">💻</span>
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-foreground">CLI Master</h1>
-                  <p className="text-sm text-primary-400 hidden md:block">Learn Linux CLI through interactive lessons</p>
+                  <h1 className="text-lg md:text-xl font-bold text-foreground">CLI Master</h1>
+                  <p className="text-xs md:text-sm text-primary-400 hidden md:block">Learn Linux CLI through interactive lessons</p>
                 </div>
               </div>
-            </div>
-            
-            {/* Action Buttons - Visible on all screens */}
-            <div className="flex items-center space-x-2 md:space-x-4">
-              {/* Mobile Menu Button */}
-              <div className="md:hidden flex items-center space-x-2">
+              
+              {/* Mobile Action Buttons - Right side on mobile */}
+              <div className="md:hidden flex items-center space-x-1">
                 <button
                   onClick={() => setShowReview(true)}
                   className="text-primary-400 hover:text-foreground p-2"
                   title="Review"
                   aria-label="Review"
                 >
-                  <span aria-hidden="true">🔁</span>
+                  <span aria-hidden="true" className="text-sm">🔁</span>
                 </button>
                 
                 <button
@@ -448,7 +445,7 @@ function App() {
                   title="Quiz"
                   aria-label="Quiz"
                 >
-                  <span aria-hidden="true">📝</span>
+                  <span aria-hidden="true" className="text-sm">📝</span>
                 </button>
                 
                 <button
@@ -457,12 +454,66 @@ function App() {
                   title="Settings"
                   aria-label="Settings"
                 >
-                  <span aria-hidden="true">⚙️</span>
+                  <span aria-hidden="true" className="text-sm">⚙️</span>
                 </button>
+              </div>
+            </div>
+            
+            {/* Stats Row - Stacked on mobile */}
+            <div className="flex flex-wrap items-center justify-center gap-1 md:gap-2 md:space-x-2">
+              {/* Bits Display */}
+              <button 
+                onClick={() => setShowShop(true)}
+                className="bg-primary-800 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-primary-700 hover:border-accent-500 transition-colors flex-shrink-0"
+                title={`${progress.bits} Bits`}
+                aria-label={`${progress.bits} Bits - Tap to open shop`}
+              >
+                <div className="flex items-center space-x-1 md:space-x-2">
+                  <div className="w-4 h-4 md:w-5 md:h-5 bg-warning rounded-full flex items-center justify-center">
+                    <span className="text-xs font-bold">🪙</span>
+                  </div>
+                  <span className="font-semibold text-foreground text-sm md:text-base">{progress.bits}</span>
+                  <span className="text-xs text-primary-400 hidden md:inline">↗</span>
+                </div>
+              </button>
+              
+              {/* XP Display */}
+              <div className="bg-primary-800 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-primary-700 flex-shrink-0" title={`${progress.xp} XP`}>
+                <div className="flex items-center space-x-1 md:space-x-2">
+                  <div className="w-4 h-4 md:w-5 md:h-5 bg-yellow-500 rounded-full flex items-center justify-center">
+                    <span className="text-xs font-bold">✨</span>
+                  </div>
+                  <span className="font-semibold text-foreground text-sm md:text-base">{progress.xp}</span>
+                  {progress.hasXpBoost && (
+                    <span className="text-xs bg-accent-500 text-white px-1 py-0.5 rounded hidden md:inline" title="2x XP Active">
+                      🌟 2x
+                    </span>
+                  )}
+                </div>
+              </div>
+              
+              {/* Level Display */}
+              <div className="bg-primary-800 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-primary-700 flex-shrink-0" title={`Level ${progress.level}`}>
+                <div className="flex items-center space-x-1 md:space-x-2">
+                  <div className="w-4 h-4 md:w-5 md:h-5 bg-accent-500 rounded-full flex items-center justify-center">
+                    <span className="text-xs font-bold text-white">{progress.level}</span>
+                  </div>
+                  <span className="font-semibold text-foreground text-sm md:text-base hidden md:inline">Lvl {progress.level}</span>
+                </div>
+              </div>
+              
+              {/* Streak Display */}
+              <div className="bg-primary-800 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-primary-700 flex-shrink-0" title={`${progress.streak} day streak`}>
+                <div className="flex items-center space-x-1 md:space-x-2">
+                  <div className="w-4 h-4 md:w-5 md:h-5 bg-danger rounded-full flex items-center justify-center">
+                    <span className="text-xs font-bold text-white">🔥</span>
+                  </div>
+                  <span className="font-semibold text-foreground text-sm md:text-base">{progress.streak}</span>
+                </div>
               </div>
               
               {/* Desktop Action Buttons */}
-              <div className="hidden md:flex items-center space-x-4">
+              <div className="hidden md:flex items-center space-x-2">
                 <button
                   onClick={() => setShowReview(true)}
                   className="text-primary-400 hover:text-foreground p-2"
@@ -490,60 +541,6 @@ function App() {
                   <span aria-hidden="true">⚙️</span>
                 </button>
               </div>
-              
-              {/* Stats Display - Compact on mobile */}
-              <div className="flex items-center space-x-2 md:space-x-4">
-                {/* Bits Display - Icon only on mobile */}
-                <button 
-                  onClick={() => setShowShop(true)}
-                  className="bg-primary-800 rounded-lg px-2 py-2 md:px-3 md:py-2 border border-primary-700 hover:border-accent-500 transition-colors"
-                  title={`${progress.bits} Bits`}
-                  aria-label={`${progress.bits} Bits - Tap to open shop`}
-                >
-                  <div className="flex items-center space-x-2">
-                    <div className="w-5 h-5 bg-warning rounded-full flex items-center justify-center">
-                      <span className="text-xs font-bold">🪙</span>
-                    </div>
-                    <span className="font-semibold text-foreground hidden md:inline">{progress.bits}</span>
-                    <span className="text-xs text-primary-400 hidden md:inline">↗</span>
-                  </div>
-                </button>
-                
-                {/* XP Display - Icon only on mobile */}
-                <div className="bg-primary-800 rounded-lg px-2 py-2 md:px-3 md:py-2 border border-primary-700" title={`${progress.xp} XP`}>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center">
-                      <span className="text-xs font-bold">✨</span>
-                    </div>
-                    <span className="font-semibold text-foreground hidden md:inline">{progress.xp}</span>
-                    {progress.hasXpBoost && (
-                      <span className="text-xs bg-accent-500 text-white px-1.5 py-0.5 rounded hidden md:inline" title="2x XP Active">
-                        🌟 2x
-                      </span>
-                    )}
-                  </div>
-                </div>
-                
-                {/* Level Display - Icon only on mobile */}
-                <div className="bg-primary-800 rounded-lg px-2 py-2 md:px-3 md:py-2 border border-primary-700" title={`Level ${progress.level}`}>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-5 h-5 bg-accent-500 rounded-full flex items-center justify-center">
-                      <span className="text-xs font-bold text-white">{progress.level}</span>
-                    </div>
-                    <span className="font-semibold text-foreground hidden md:inline">Level {progress.level}</span>
-                  </div>
-                </div>
-                
-                {/* Streak Display - Icon only on mobile */}
-                <div className="bg-primary-800 rounded-lg px-2 py-2 md:px-3 md:py-2 border border-primary-700" title={`${progress.streak} day streak`}>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-5 h-5 bg-danger rounded-full flex items-center justify-center">
-                      <span className="text-xs font-bold text-white">🔥</span>
-                    </div>
-                    <span className="font-semibold text-foreground hidden md:inline">{progress.streak}</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -553,11 +550,11 @@ function App() {
       <main id="main-content" className="container mx-auto px-4 py-6 md:py-8" tabIndex={-1}>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
           {/* Left Column: Terminal */}
-<div className="lg:col-span-2">
-              <div className="card p-4 md:p-6">
-                <h2 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3">Interactive Lesson</h2>
-                <p className="text-primary-400 mb-4 md:mb-6 text-sm md:text-base">Type commands below to complete the lesson challenge!</p>
-              
+          <div className="lg:col-span-2">
+            <div className="card p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3">Interactive Lesson</h2>
+              <p className="text-primary-400 mb-4 md:mb-6 text-sm md:text-base">Type commands below to complete the lesson challenge!</p>
+            
               <div className="terminal-window p-4">
                 <Terminal 
                   lessonId={currentLesson}
@@ -598,74 +595,102 @@ function App() {
                   <span className="text-white font-bold">{Math.min(100, Math.floor((progress.completedLessons.size / 3) * 100))}%</span>
                 </div>
               </div>
-              <div className="mb-4">
-                <div className="flex justify-between text-sm text-primary-300 mb-1">
-                  <span>Daily Streak</span>
-                  <span>{progress.streak} days</span>
-                </div>
-                <div className="progress-bar">
-                  <div 
-                    className="progress-fill"
-                    style={{ width: `${Math.min(100, progress.streak * 10)}%` }}
-                  ></div>
-                </div>
-              </div>
-              <button className="btn-primary w-full">Continue Learning</button>
+              <button className="btn-primary w-full">Spin Daily Wheel</button>
             </div>
             
             {/* Unit Selector */}
             <div className="card p-5">
-              <h3 className="font-semibold text-foreground mb-4">Learning Units</h3>
-              <UnitSelector 
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-semibold text-foreground">Learning Units</h3>
+                <div className="text-sm text-primary-400">
+                  {progress.completedLessons.size} completed
+                </div>
+              </div>
+              <UnitSelector
                 units={units}
                 currentLesson={currentLesson}
                 onSelectLesson={setCurrentLesson}
                 completedLessons={progress.completedLessons}
               />
             </div>
-            
-            {/* Quick Stats */}
-            <div className="card p-5">
-              <h3 className="font-semibold text-foreground mb-4">Quick Stats</h3>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-primary-400">Total Commands</span>
-                  <span className="font-bold text-foreground">{progress.completedLessons.size * 3}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-primary-400">Accuracy Rate</span>
-                  <span className="font-bold text-terminal-success">92%</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-primary-400">Time Practiced</span>
-                  <span className="font-bold text-foreground">{progress.completedLessons.size * 15} min</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-12 border-t border-primary-800 bg-primary-900/50">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <div className="flex items-center space-x-2">
-                <div className="w-7 h-7 bg-accent-500 rounded flex items-center justify-center">
-                  <span className="text-white font-bold">💻</span>
-                </div>
-                <span className="text-primary-400">CLI Master - Interactive CLI Learning</span>
-              </div>
-            </div>
-            <div className="text-sm text-primary-500">
-              <p>100% browser-based • No server required • Open source</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Modals */}
+      {showSettings && (
+        <Settings
+          onResetProgress={handleResetProgress}
+          onClose={() => setShowSettings(false)}
+          onOpenShop={() => {
+            setShowSettings(false);
+            setShowShop(true);
+          }}
+        />
+      )}
+      
+      {showSpinWheel && (
+        <SpinWheel
+          onSpinComplete={(bitsWon, xpBoost) => {
+            if (bitsWon) {
+              setProgress(prev => ({
+                ...prev,
+                bits: prev.bits + bitsWon
+              }));
+            }
+            if (xpBoost) {
+              setProgress(prev => ({
+                ...prev,
+                hasXpBoost: true
+              }));
+            }
+          }}
+          onClose={() => setShowSpinWheel(false)}
+        />
+      )}
+      
+      {showShop && (
+        <Shop
+          bits={progress.bits}
+          hasXpBoost={progress.hasXpBoost}
+          onPurchase={(type, cost) => {
+            if (type === 'xpBoost') {
+              setProgress(prev => ({
+                ...prev,
+                bits: prev.bits - cost,
+                hasXpBoost: true
+              }));
+            }
+          }}
+          onClose={() => setShowShop(false)}
+        />
+      )}
+      
+      {showQuiz && (
+        <QuizSystem
+          onClose={() => setShowQuiz(false)}
+          completedLessons={progress.completedLessons}
+          onComplete={(correct, total) => {
+            const xpEarned = Math.floor((correct / total) * 50);
+            setProgress(prev => ({
+              ...prev,
+              xp: prev.xp + xpEarned
+            }));
+          }}
+        />
+      )}
+      
+      {showReview && (
+        <ReviewSystem
+          completedLessons={progress.completedLessons}
+          onClose={() => setShowReview(false)}
+          onComplete={(lessonId, challengeId, success) => {
+            console.log('Review completed:', { lessonId, challengeId, success });
+          }}
+        />
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
