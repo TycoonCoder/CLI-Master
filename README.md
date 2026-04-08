@@ -1,5 +1,4 @@
 # CLI Master
-
 CLI Master is a gamified terminal learning platform that teaches Linux command-line skills through interactive lessons, challenges, and a reward system. Built with React, TypeScript, and Vite, it provides a safe sandbox environment for mastering CLI commands.
 
 ## Features
@@ -45,7 +44,6 @@ npm run build
 ```
 
 ## Tech Stack
-
 - **Frontend**: React 19, TypeScript, Vite
 - **Styling**: CSS Modules with modern CSS features
 - **Routing**: React Router v6
@@ -56,17 +54,17 @@ npm run build
 
 ```
 src/
-├── components/          # React components
-│   ├── Terminal.tsx    # Terminal emulator
-│   ├── LessonView.tsx  # Lesson interface
+├── components/ # React components
+│   ├── Terminal.tsx # Terminal emulator
+│   ├── LessonView.tsx # Lesson interface
 │   ├── UnitSelector.tsx # Unit navigation
 │   └── (various UI components)
 ├── core/
-│   ├── lessons.ts      # Lesson definitions
-│   ├── types.ts        # TypeScript interfaces
+│   ├── lessons.ts # Lesson definitions
+│   ├── types.ts # TypeScript interfaces
 │   ├── achievements.ts # Achievement system
 │   └── dailyChallenges.ts # Daily challenges
-└── main.tsx           # App entry point
+└── main.tsx # App entry point
 ```
 
 ## Development
@@ -92,5 +90,4 @@ The project is configured for:
 Feel free to submit issues or pull requests to enhance the platform. Suggestions for new lessons, gamification features, or UX improvements are welcome.
 
 ## License
-
 MIT
