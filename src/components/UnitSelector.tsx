@@ -65,7 +65,7 @@ export default function UnitSelector({
             </div>
             
             {/* Lesson grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 gap-1 md:gap-2">
               {unit.lessonIds.map(lessonId => {
 const isCompleted = completedLessons.has(lessonId);
                 const isCurrent = lessonId === currentLesson;
@@ -77,9 +77,10 @@ const isCompleted = completedLessons.has(lessonId);
                     onClick={() => onSelectLesson(lessonId)}
                     disabled={!isUnlocked}
                     className={`
-                      relative p-3 rounded-lg text-sm font-medium transition-all
+                      relative p-2 md:p-3 rounded-lg text-xs md:text-sm font-medium transition-all
+                      min-h-[44px] min-w-[44px] /* Touch target size */
                       ${isCurrent 
-                        ? 'ring-2 ring-offset-2 ring-opacity-50' 
+                        ? 'ring-1 md:ring-2 ring-offset-1 md:ring-offset-2 ring-opacity-50' 
                         : 'hover:scale-[1.02] hover:shadow-md'
                       }
                       ${isCompleted 

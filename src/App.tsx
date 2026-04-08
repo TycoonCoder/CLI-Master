@@ -416,6 +416,7 @@ function App() {
       <header className="sticky top-0 z-50 bg-primary-900/95 backdrop-blur-sm border-b border-primary-800">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
+            {/* Logo and Title */}
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center" aria-hidden="true">
@@ -428,83 +429,119 @@ function App() {
               </div>
             </div>
             
-            <div className="flex items-center space-x-4">
-              {/* Review Button */}
-              <button
-                onClick={() => setShowReview(true)}
-                className="text-primary-400 hover:text-foreground p-2"
-                title="Spaced Repetition Review"
-                aria-label="Review learned material with spaced repetition"
-              >
-                <span aria-hidden="true">🔁</span>
-              </button>
-              
-              {/* Quiz Button */}
-              <button
-                onClick={() => setShowQuiz(true)}
-                className="text-primary-400 hover:text-foreground p-2"
-                title="Take Quiz"
-                aria-label="Take a quiz to test your knowledge"
-              >
-                <span aria-hidden="true">📝</span>
-              </button>
-              
-              {/* Settings Button */}
-              <button
-                onClick={() => setShowSettings(true)}
-                className="text-primary-400 hover:text-foreground p-2"
-                title="Settings"
-                aria-label="Open settings"
-              >
-                <span aria-hidden="true">⚙️</span>
-              </button>
-              
-              {/* Bits Display with Shop */}
-              <button 
-                onClick={() => setShowShop(true)}
-                className="bg-primary-800 rounded-lg px-3 py-2 border border-primary-700 hover:border-accent-500 transition-colors"
-              >
-                <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 bg-warning rounded-full flex items-center justify-center">
-                    <span className="text-xs font-bold">🪙</span>
-                  </div>
-                  <span className="font-semibold text-foreground">{progress.bits} Bits</span>
-                  <span className="text-xs text-primary-400">↗</span>
-                </div>
-              </button>
-              
-              {/* XP Display */}
-              <div className="bg-primary-800 rounded-lg px-3 py-2 border border-primary-700">
-                <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center">
-                    <span className="text-xs font-bold">✨</span>
-                  </div>
-                  <span className="font-semibold text-foreground">{progress.xp} XP</span>
-                  {progress.hasXpBoost && (
-                    <span className="text-xs bg-accent-500 text-white px-1.5 py-0.5 rounded" title="2x XP Active">
-                      🌟 2x
-                    </span>
-                  )}
-                </div>
+            {/* Action Buttons - Visible on all screens */}
+            <div className="flex items-center space-x-2 md:space-x-4">
+              {/* Mobile Menu Button */}
+              <div className="md:hidden flex items-center space-x-2">
+                <button
+                  onClick={() => setShowReview(true)}
+                  className="text-primary-400 hover:text-foreground p-2"
+                  title="Review"
+                  aria-label="Review"
+                >
+                  <span aria-hidden="true">🔁</span>
+                </button>
+                
+                <button
+                  onClick={() => setShowQuiz(true)}
+                  className="text-primary-400 hover:text-foreground p-2"
+                  title="Quiz"
+                  aria-label="Quiz"
+                >
+                  <span aria-hidden="true">📝</span>
+                </button>
+                
+                <button
+                  onClick={() => setShowSettings(true)}
+                  className="text-primary-400 hover:text-foreground p-2"
+                  title="Settings"
+                  aria-label="Settings"
+                >
+                  <span aria-hidden="true">⚙️</span>
+                </button>
               </div>
               
-              {/* Level Display */}
-              <div className="bg-primary-800 rounded-lg px-3 py-2 border border-primary-700">
-                <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 bg-accent-500 rounded-full flex items-center justify-center">
-                    <span className="text-xs font-bold text-white">{progress.level}</span>
-                  </div>
-                  <span className="font-semibold text-foreground">Level {progress.level}</span>
-                </div>
+              {/* Desktop Action Buttons */}
+              <div className="hidden md:flex items-center space-x-4">
+                <button
+                  onClick={() => setShowReview(true)}
+                  className="text-primary-400 hover:text-foreground p-2"
+                  title="Spaced Repetition Review"
+                  aria-label="Review learned material with spaced repetition"
+                >
+                  <span aria-hidden="true">🔁</span>
+                </button>
+                
+                <button
+                  onClick={() => setShowQuiz(true)}
+                  className="text-primary-400 hover:text-foreground p-2"
+                  title="Take Quiz"
+                  aria-label="Take a quiz to test your knowledge"
+                >
+                  <span aria-hidden="true">📝</span>
+                </button>
+                
+                <button
+                  onClick={() => setShowSettings(true)}
+                  className="text-primary-400 hover:text-foreground p-2"
+                  title="Settings"
+                  aria-label="Open settings"
+                >
+                  <span aria-hidden="true">⚙️</span>
+                </button>
               </div>
               
-              {/* Streak Display */}
-              <div className="bg-primary-800 rounded-lg px-3 py-2 border border-primary-700">
-                <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 bg-danger rounded-full flex items-center justify-center">
-                    <span className="text-xs font-bold text-white">🔥</span>
+              {/* Stats Display - Compact on mobile */}
+              <div className="flex items-center space-x-2 md:space-x-4">
+                {/* Bits Display - Icon only on mobile */}
+                <button 
+                  onClick={() => setShowShop(true)}
+                  className="bg-primary-800 rounded-lg px-2 py-2 md:px-3 md:py-2 border border-primary-700 hover:border-accent-500 transition-colors"
+                  title={`${progress.bits} Bits`}
+                  aria-label={`${progress.bits} Bits - Tap to open shop`}
+                >
+                  <div className="flex items-center space-x-2">
+                    <div className="w-5 h-5 bg-warning rounded-full flex items-center justify-center">
+                      <span className="text-xs font-bold">🪙</span>
+                    </div>
+                    <span className="font-semibold text-foreground hidden md:inline">{progress.bits}</span>
+                    <span className="text-xs text-primary-400 hidden md:inline">↗</span>
                   </div>
-                  <span className="font-semibold text-foreground">{progress.streak} days</span>
+                </button>
+                
+                {/* XP Display - Icon only on mobile */}
+                <div className="bg-primary-800 rounded-lg px-2 py-2 md:px-3 md:py-2 border border-primary-700" title={`${progress.xp} XP`}>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center">
+                      <span className="text-xs font-bold">✨</span>
+                    </div>
+                    <span className="font-semibold text-foreground hidden md:inline">{progress.xp}</span>
+                    {progress.hasXpBoost && (
+                      <span className="text-xs bg-accent-500 text-white px-1.5 py-0.5 rounded hidden md:inline" title="2x XP Active">
+                        🌟 2x
+                      </span>
+                    )}
+                  </div>
+                </div>
+                
+                {/* Level Display - Icon only on mobile */}
+                <div className="bg-primary-800 rounded-lg px-2 py-2 md:px-3 md:py-2 border border-primary-700" title={`Level ${progress.level}`}>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-5 h-5 bg-accent-500 rounded-full flex items-center justify-center">
+                      <span className="text-xs font-bold text-white">{progress.level}</span>
+                    </div>
+                    <span className="font-semibold text-foreground hidden md:inline">Level {progress.level}</span>
+                  </div>
+                </div>
+                
+                {/* Streak Display - Icon only on mobile */}
+                <div className="bg-primary-800 rounded-lg px-2 py-2 md:px-3 md:py-2 border border-primary-700" title={`${progress.streak} day streak`}>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-5 h-5 bg-danger rounded-full flex items-center justify-center">
+                      <span className="text-xs font-bold text-white">🔥</span>
+                    </div>
+                    <span className="font-semibold text-foreground hidden md:inline">{progress.streak}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -513,13 +550,13 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main id="main-content" className="container mx-auto px-4 py-8" tabIndex={-1}>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <main id="main-content" className="container mx-auto px-4 py-6 md:py-8" tabIndex={-1}>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
           {/* Left Column: Terminal */}
-          <div className="lg:col-span-2">
-            <div className="card p-6">
-              <h2 className="text-xl font-bold text-foreground mb-3">Interactive Lesson</h2>
-              <p className="text-primary-400 mb-6">Type commands below to complete the lesson challenge!</p>
+<div className="lg:col-span-2">
+              <div className="card p-4 md:p-6">
+                <h2 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3">Interactive Lesson</h2>
+                <p className="text-primary-400 mb-4 md:mb-6 text-sm md:text-base">Type commands below to complete the lesson challenge!</p>
               
               <div className="terminal-window p-4">
                 <Terminal 

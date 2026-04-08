@@ -14,6 +14,20 @@
     padding: 0;
     overflow-x: hidden;
     line-height: 1.6;
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+  }
+  
+  /* Better touch targets on mobile */
+  @media (max-width: 768px) {
+    button, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    input, select, textarea {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
   }
 
   /* Custom scrollbar */
