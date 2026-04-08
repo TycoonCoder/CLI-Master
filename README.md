@@ -5,6 +5,8 @@ If you find this project useful, consider supporting its development:
 
 **Monero:** `45FaicSnwc8AC2MhJPHc9HXoXLLzA2KJxf8Ah67BtYeJhQTyAMJKkFB5pHhy4pFXwedjqGGMHCLkW3WouJWxvhLz5Spej3j`
 
+**Live Demo:** https://tycooncoder.github.io/CLI-Master
+
 ---
 
 CLI Master is a gamified terminal learning platform that teaches Linux command-line skills through interactive lessons, challenges, and a reward system. Built with React, TypeScript, and Vite, it provides a safe sandbox environment for mastering CLI commands.
