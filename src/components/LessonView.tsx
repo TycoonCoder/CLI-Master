@@ -112,8 +112,8 @@ const LessonView: React.FC<LessonViewProps> = ({ lessonId, onComplete, onActivit
     
     let isCorrect = false;
     
-    // Simple exact match
-    if (normalizedInput === normalizedExpected) {
+    // Simple exact match or 'continue' command
+    if (normalizedInput === normalizedExpected || normalizedExpected === 'continue') {
       isCorrect = true;
     }
     // Handle command chains with &&

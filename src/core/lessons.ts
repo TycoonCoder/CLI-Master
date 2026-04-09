@@ -33,23 +33,49 @@ export const lessons: Lesson[] = [
       },
       {
         id: 'challenge-3',
-        description: 'Great! Now let\'s practice. What command would you use to find your current directory?',
-        expectedCommand: 'pwd',
-        hints: ['Remember: "pwd" shows your current location'],
+        description: 'Perfect! Now try using "cd" to change to a directory called "Downloads".',
+        expectedCommand: 'cd Downloads',
+        hints: ['Type "cd Downloads" to go to Downloads directory'],
         fileSystemState: {
-          currentPath: '/home/user/documents',
+          currentPath: '/home/user',
+          files: [],
+          directories: [
+            { name: 'Downloads', permissions: 'rwxr-xr-x', owner: 'user', group: 'users' }
+          ],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-4',
+        description: 'Great! Now use "pwd" to confirm you\'re in the Downloads directory.',
+        expectedCommand: 'pwd',
+        hints: ['Type "pwd" to confirm your location'],
+        fileSystemState: {
+          currentPath: '/home/user/Downloads',
           files: [],
           directories: [],
           environment: { USER: 'user' }
         }
       },
       {
-        id: 'challenge-4',
-        description: 'Excellent! Now navigate to your home directory using "cd ~" and confirm with pwd. You can chain commands with "&&".',
-        expectedCommand: 'cd ~ && pwd',
-        hints: ['Use "cd ~" to go to home directory', 'Chain commands: "cd ~ && pwd"', '"&&" runs commands sequentially'],
+        id: 'challenge-5',
+        description: 'Excellent! Now navigate to your home directory using "cd ~".',
+        expectedCommand: 'cd ~',
+        hints: ['Use "cd ~" to go to home directory'],
         fileSystemState: {
-          currentPath: '/home/user/documents',
+          currentPath: '/home/user/Downloads',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-6',
+        description: 'Great! Now confirm you\'re in your home directory with "pwd".',
+        expectedCommand: 'pwd',
+        hints: ['Type "pwd" to confirm your location'],
+        fileSystemState: {
+          currentPath: '/home/user',
           files: [],
           directories: [],
           environment: { USER: 'user' }
@@ -76,9 +102,9 @@ export const lessons: Lesson[] = [
     commands: ['ls'],
     challenges: [
       {
-        id: 'challenge-5',
+        id: 'challenge-6',
         description: 'Now let\'s learn about "ls" (list). This command shows files and directories in your current folder.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -171,7 +197,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-10',
         description: 'Now let\'s learn "cd" (change directory). This lets you move between folders.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -273,7 +299,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-16',
         description: 'Now learn "cat" (concatenate). This command displays file contents.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -362,7 +388,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-21',
         description: 'Learn "touch" - creates empty files or updates timestamps.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -445,7 +471,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-26',
         description: 'Learn "mkdir" (make directory) - creates new folders.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -528,7 +554,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-31',
         description: 'Learn "echo" - prints text to the terminal.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -609,7 +635,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-36',
         description: 'Learn "clear" - cleans the terminal screen.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -690,7 +716,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-41',
         description: 'Time to review! You\'ll practice all commands in realistic scenarios.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -791,7 +817,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-47',
         description: 'Final exam! You\'ll complete a real-world project setup.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to begin'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1051,7 +1077,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-62',
         description: 'Learn "find" - searches for files matching criteria.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1152,7 +1178,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-67',
         description: 'Learn "grep" - searches for patterns within files.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1248,7 +1274,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-72',
         description: 'Learn "sed" - stream editor for text transformation.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1290,7 +1316,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-75',
         description: 'Learn "awk" - pattern scanning and processing.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1355,7 +1381,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-78',
         description: 'Learn "ps" - shows running processes.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1391,7 +1417,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-81',
         description: 'Learn "kill" - terminate processes.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1452,7 +1478,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-84',
         description: 'Learn "ping" - test network connectivity to a host.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1476,7 +1502,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-86',
         description: 'Learn "curl" - transfer data from URLs.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1547,7 +1573,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-90',
         description: 'Learn "ssh" - secure shell for remote login.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1583,7 +1609,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-93',
         description: 'Learn "scp" - secure copy between systems.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1646,7 +1672,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-96',
         description: 'Learn about job control - managing background processes.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1694,7 +1720,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-100',
         description: 'Learn "nice" - set process priority.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1753,7 +1779,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-103',
         description: 'Learn system monitoring commands.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',
@@ -1801,7 +1827,7 @@ export const lessons: Lesson[] = [
       {
         id: 'challenge-107',
         description: 'Learn "tar" - archive files.',
-        expectedCommand: '',
+        expectedCommand: 'continue',
         hints: ['Press Enter to continue'],
         fileSystemState: {
           currentPath: '/home/user',

@@ -98,11 +98,11 @@ export class CLISimulator {
       };
     }
 
-    // Handle teaching messages (commands starting with empty expected command)
-    if (trimmed === '') {
+    // Handle teaching messages (commands like 'continue' to advance)
+    if (trimmed === 'continue') {
       return {
         success: true,
-        output: '',
+        output: 'Continuing to next challenge...',
         exitCode: 0
       };
     }
