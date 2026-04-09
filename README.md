@@ -1,10 +1,5 @@
 # CLI Master
 
-## 💸 Donations
-If you find this project useful, consider supporting its development:
-
-**Monero:** `45FaicSnwc8AC2MhJPHc9HXoXLLzA2KJxf8Ah67BtYeJhQTyAMJKkFB5pHhy4pFXwedjqGGMHCLkW3WouJWxvhLz5Spej3j`
-
 **Live Demo:** https://tycooncoder.github.io/CLI-Master
 
 ---

@@ -5,8 +5,6 @@ import UnitSelector from './components/UnitSelector'
 import ProgressBar from './components/ProgressBar'
 import WelcomePage from './components/WelcomePage'
 import Settings from './components/Settings'
-import SpinWheel from './components/SpinWheel'
-import Shop from './components/Shop'
 import QuizSystem from './components/QuizSystem'
 import ReviewSystem from './components/ReviewSystem'
 import type { UserProgress } from './core/types'
@@ -17,19 +15,18 @@ import { checkAchievements } from './core/achievements'
 function App() {
   const [showWelcome, setShowWelcome] = useState(true)
   const [showSettings, setShowSettings] = useState(false)
-  const [showSpinWheel, setShowSpinWheel] = useState(false)
-  const [showShop, setShowShop] = useState(false)
+  
   const [showQuiz, setShowQuiz] = useState(false)
   const [showReview, setShowReview] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   // const [dailyChallenges, setDailyChallenges] = useState<ReturnType<typeof generateDailyChallenges>>([])
   const hasLoadedRef = useRef(false)
   
-  const [progress, setProgress] = useState<UserProgress>({
+const [progress, setProgress] = useState<UserProgress>({
     xp: 0,
     level: 1,
     streak: 0,
-    bits: 5, // Starting bits
+    bits: 0,
     hasXpBoost: false,
     achievements: [],
     completedLessons: new Set(),
@@ -237,42 +234,19 @@ function App() {
     // Update streak on lesson completion
     updateStreak()
     
-    // Show spin wheel after completing a lesson (only on final completion)
+    // Auto-advance to next lesson after completion
     if (isFinal && !progress.completedLessons.has(lessonId)) {
-      console.log('🎰 Showing spin wheel for lesson:', lessonId)
-      setTimeout(() => setShowSpinWheel(true), 1000);
-    } else {
-      console.log('⏭️ Not showing spin wheel - isFinal:', isFinal, 'hasLesson:', progress.completedLessons.has(lessonId))
+      console.log('🎉 Lesson completed:', lessonId)
+      setTimeout(() => {
+        const nextLessonId = getNextLessonId(lessonId)
+        if (nextLessonId) {
+          setCurrentLesson(nextLessonId)
+        }
+      }, 1000);
     }
   }
 
-  const handleSpinComplete = (bitsWon: number, xpBoost: boolean) => {
-    console.log('🎲 Spin wheel completed:', { bitsWon, xpBoost })
-    console.log('Current bits before:', progress.bits)
-    
-    setProgress(prev => {
-      const newProgress = {
-        ...prev,
-        bits: prev.bits + bitsWon,
-        hasXpBoost: xpBoost ? true : prev.hasXpBoost
-      }
-      
-      // Check for achievements
-      const unlockedAchievements = checkAchievements(newProgress, {
-        type: 'spin_wheel',
-        data: { bitsWon, wonXpBoost: xpBoost }
-      });
-      
-      if (unlockedAchievements.length > 0) {
-        console.log('🏆 Spin wheel achievements unlocked:', unlockedAchievements.map(a => a.name));
-        newProgress.achievements = [...prev.achievements, ...unlockedAchievements];
-      }
-      
-      console.log('Bits after spin:', newProgress.bits)
-      return newProgress
-    })
-    setShowSpinWheel(false)
-  }
+  
 
   const handleQuizComplete = (score: number, total: number) => {
     const xpEarned = Math.floor((score / total) * 50); // Up to 50 XP for quiz
@@ -299,25 +273,7 @@ function App() {
     setShowQuiz(false)
   }
 
-  const handlePurchase = (itemId: string, cost: number): boolean => {
-    if (progress.bits < cost) return false;
-    
-    if (itemId === 'xp-boost') {
-      setProgress(prev => ({
-        ...prev,
-        bits: prev.bits - cost,
-        hasXpBoost: true
-      }))
-    } else {
-      // Handle other purchases
-      setProgress(prev => ({
-        ...prev,
-        bits: prev.bits - cost
-      }))
-    }
-    
-    return true;
-  }
+  
 
   const handleResetProgress = () => {
     localStorage.removeItem('climaster-progress')
@@ -360,29 +316,12 @@ function App() {
       <Settings 
         onResetProgress={handleResetProgress} 
         onClose={() => setShowSettings(false)}
-        onOpenShop={() => {
-          setShowSettings(false);
-          setShowShop(true);
-        }}
+        
       />
     )
   }
 
-  if (showSpinWheel) {
-    return <SpinWheel 
-      onSpinComplete={handleSpinComplete}
-      onClose={() => setShowSpinWheel(false)} 
-    />
-  }
-
-  if (showShop) {
-    return <Shop 
-      bits={progress.bits}
-      hasXpBoost={progress.hasXpBoost}
-      onPurchase={handlePurchase}
-      onClose={() => setShowShop(false)}
-    />
-  }
+  
 
   if (showQuiz) {
     return <QuizSystem 
@@ -459,24 +398,8 @@ function App() {
               </div>
             </div>
             
-            {/* Stats Row - Stacked on mobile */}
+{/* Stats Row - Stacked on mobile */}
             <div className="flex flex-wrap items-center justify-center gap-1 md:gap-2 md:space-x-2">
-              {/* Bits Display */}
-              <button 
-                onClick={() => setShowShop(true)}
-                className="bg-primary-800 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-primary-700 hover:border-accent-500 transition-colors flex-shrink-0"
-                title={`${progress.bits} Bits`}
-                aria-label={`${progress.bits} Bits - Tap to open shop`}
-              >
-                <div className="flex items-center space-x-1 md:space-x-2">
-                  <div className="w-4 h-4 md:w-5 md:h-5 bg-warning rounded-full flex items-center justify-center">
-                    <span className="text-xs font-bold">🪙</span>
-                  </div>
-                  <span className="font-semibold text-foreground text-sm md:text-base">{progress.bits}</span>
-                  <span className="text-xs text-primary-400 hidden md:inline">↗</span>
-                </div>
-              </button>
-              
               {/* XP Display */}
               <div className="bg-primary-800 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-primary-700 flex-shrink-0" title={`${progress.xp} XP`}>
                 <div className="flex items-center space-x-1 md:space-x-2">
@@ -484,11 +407,6 @@ function App() {
                     <span className="text-xs font-bold">✨</span>
                   </div>
                   <span className="font-semibold text-foreground text-sm md:text-base">{progress.xp}</span>
-                  {progress.hasXpBoost && (
-                    <span className="text-xs bg-accent-500 text-white px-1 py-0.5 rounded hidden md:inline" title="2x XP Active">
-                      🌟 2x
-                    </span>
-                  )}
                 </div>
               </div>
               
@@ -595,7 +513,7 @@ function App() {
                   <span className="text-white font-bold">{Math.min(100, Math.floor((progress.completedLessons.size / 3) * 100))}%</span>
                 </div>
               </div>
-              <button className="btn-primary w-full">Spin Daily Wheel</button>
+              <button className="btn-primary w-full" disabled>Daily Goals</button>
             </div>
             
             {/* Unit Selector */}
@@ -622,49 +540,10 @@ function App() {
         <Settings
           onResetProgress={handleResetProgress}
           onClose={() => setShowSettings(false)}
-          onOpenShop={() => {
-            setShowSettings(false);
-            setShowShop(true);
-          }}
+          
         />
       )}
-      
-      {showSpinWheel && (
-        <SpinWheel
-          onSpinComplete={(bitsWon, xpBoost) => {
-            if (bitsWon) {
-              setProgress(prev => ({
-                ...prev,
-                bits: prev.bits + bitsWon
-              }));
-            }
-            if (xpBoost) {
-              setProgress(prev => ({
-                ...prev,
-                hasXpBoost: true
-              }));
-            }
-          }}
-          onClose={() => setShowSpinWheel(false)}
-        />
-      )}
-      
-      {showShop && (
-        <Shop
-          bits={progress.bits}
-          hasXpBoost={progress.hasXpBoost}
-          onPurchase={(type, cost) => {
-            if (type === 'xpBoost') {
-              setProgress(prev => ({
-                ...prev,
-                bits: prev.bits - cost,
-                hasXpBoost: true
-              }));
-            }
-          }}
-          onClose={() => setShowShop(false)}
-        />
-      )}
+          
       
       {showQuiz && (
         <QuizSystem
