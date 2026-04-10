@@ -102,7 +102,19 @@ export const lessons: Lesson[] = [
     commands: ['ls'],
     challenges: [
       {
-        id: 'challenge-1',
+        id: 'challenge-6',
+        description: 'Now let\'s learn about "ls" (list). This command shows files and directories in your current folder.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-6',
         description: 'Try using "ls" to see what\'s in your current directory.',
         expectedCommand: 'ls',
         hints: ['Type "ls" and press Enter'],
@@ -120,7 +132,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-7',
         description: 'Good! Now let\'s review: First check where you are with pwd, then list files with ls.',
         expectedCommand: 'pwd && ls',
         hints: ['Use "pwd" then "ls"', 'You can combine with &&'],
@@ -136,7 +148,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-8',
         description: 'Challenge: Navigate to /var/log and list its contents.',
         expectedCommand: 'cd /var/log && ls',
         hints: ['First change directory: cd /var/log', 'Then list: ls'],
@@ -150,7 +162,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-9',
         description: 'Great work! Now go back home and confirm with pwd.',
         expectedCommand: 'cd ~ && pwd',
         hints: ['~ means home directory', 'Use "cd ~" to go home'],
@@ -183,7 +195,19 @@ export const lessons: Lesson[] = [
     commands: ['cd'],
     challenges: [
       {
-        id: 'challenge-1',
+        id: 'challenge-10',
+        description: 'Now let\'s learn "cd" (change directory). This lets you move between folders.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-11',
         description: 'Use "cd documents" to enter the documents directory.',
         expectedCommand: 'cd documents',
         hints: ['Type "cd documents" and press Enter'],
@@ -197,7 +221,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-12',
         description: 'Good! Now use "cd .." to go back up one directory. ".." means parent directory.',
         expectedCommand: 'cd ..',
         hints: ['Type "cd .." and press Enter'],
@@ -209,7 +233,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-13',
         description: 'Review: First list files with ls, then navigate to downloads directory.',
         expectedCommand: 'ls && cd downloads',
         hints: ['Combine commands: ls && cd downloads'],
@@ -224,7 +248,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-14',
         description: 'Now go to the absolute path /usr/bin. First check it exists with ls /usr, then cd there.',
         expectedCommand: 'ls /usr && cd /usr/bin',
         hints: ['First "ls /usr" to see bin directory exists', 'Then "cd /usr/bin"'],
@@ -238,7 +262,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-6',
+        id: 'challenge-15',
         description: 'Final challenge: Go home, list files, then go to /tmp directory.',
         expectedCommand: 'cd ~ && ls && cd /tmp',
         hints: ['cd ~ goes home', 'Then ls', 'Finally cd /tmp'],
@@ -273,8 +297,20 @@ export const lessons: Lesson[] = [
     commands: ['cat'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Now learn "cat" (concatenate). This command displays file contents. Use "cat notes.md" to read the notes file.',
+        id: 'challenge-16',
+        description: 'Now learn "cat" (concatenate). This command displays file contents.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-17',
+        description: 'Use "cat notes.md" to read the notes file.',
         expectedCommand: 'cat notes.md',
         hints: ['Type "cat notes.md" and press Enter'],
         fileSystemState: {
@@ -287,7 +323,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-18',
         description: 'Good! Now combine commands: list files, then read file.txt.',
         expectedCommand: 'ls && cat file.txt',
         hints: ['First ls, then cat file.txt'],
@@ -302,7 +338,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-19',
         description: 'Scenario: You\'re in /var/log. Check what files exist and read system.log.',
         expectedCommand: 'ls && cat system.log',
         hints: ['First ls to see files', 'Then cat system.log to read it'],
@@ -317,7 +353,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-20',
         description: 'Review: Navigate home, list files, then read notes.md.',
         expectedCommand: 'cd ~ && ls && cat notes.md',
         hints: ['cd ~ goes home', 'ls lists files', 'cat notes.md reads file'],
@@ -350,8 +386,20 @@ export const lessons: Lesson[] = [
     commands: ['touch'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "touch" - creates empty files or updates timestamps. Create a file called "todo.txt" in your current directory.',
+        id: 'challenge-21',
+        description: 'Learn "touch" - creates empty files or updates timestamps.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-22',
+        description: 'Create a file called "todo.txt" in your current directory.',
         expectedCommand: 'touch todo.txt',
         hints: ['Type "touch todo.txt" and press Enter'],
         fileSystemState: {
@@ -362,7 +410,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-23',
         description: 'Now list files to see your new todo.txt, then create another file "shopping.txt".',
         expectedCommand: 'ls && touch shopping.txt',
         hints: ['First ls to confirm', 'Then touch shopping.txt'],
@@ -374,7 +422,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-24',
         description: 'Scenario: Navigate to documents directory and create a file "meeting_notes.txt".',
         expectedCommand: 'cd documents && touch meeting_notes.txt',
         hints: ['First cd documents', 'Then touch meeting_notes.txt'],
@@ -388,7 +436,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-25',
         description: 'Review: Go home, create file "backup.sh", list to confirm, then read its (empty) contents.',
         expectedCommand: 'cd ~ && touch backup.sh && ls && cat backup.sh',
         hints: ['cd ~ goes home', 'touch backup.sh creates file', 'ls shows it', 'cat reads it'],
@@ -421,8 +469,20 @@ export const lessons: Lesson[] = [
     commands: ['mkdir'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "mkdir" (make directory) - creates new folders. Create a directory called "projects" in your current folder.',
+        id: 'challenge-26',
+        description: 'Learn "mkdir" (make directory) - creates new folders.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-27',
+        description: 'Create a directory called "projects" in your current folder.',
         expectedCommand: 'mkdir projects',
         hints: ['Type "mkdir projects" and press Enter'],
         fileSystemState: {
@@ -433,7 +493,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-28',
         description: 'Now list files to see your new projects directory, then create "music" directory.',
         expectedCommand: 'ls && mkdir music',
         hints: ['First ls to confirm', 'Then mkdir music'],
@@ -445,7 +505,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-29',
         description: 'Scenario: Navigate into projects, create "src" and "docs" directories inside.',
         expectedCommand: 'cd projects && mkdir src docs',
         hints: ['First cd projects', 'mkdir can create multiple: mkdir src docs'],
@@ -459,7 +519,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-30',
         description: 'Review: Go home, create "backups" directory, enter it, create "daily" subdirectory.',
         expectedCommand: 'cd ~ && mkdir backups && cd backups && mkdir daily',
         hints: ['cd ~ goes home', 'mkdir backups', 'cd backups', 'mkdir daily'],
@@ -492,8 +552,20 @@ export const lessons: Lesson[] = [
     commands: ['echo'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "echo" - prints text to the terminal. Use echo to print "Hello CLI Master!"',
+        id: 'challenge-31',
+        description: 'Learn "echo" - prints text to the terminal.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-32',
+        description: 'Use echo to print "Hello CLI Master!"',
         expectedCommand: 'echo "Hello CLI Master!"',
         hints: ['Type \'echo "Hello CLI Master!"\' and press Enter'],
         fileSystemState: {
@@ -504,7 +576,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-33',
         description: 'Now combine: print a message, then list files.',
         expectedCommand: 'echo "Files in current directory:" && ls',
         hints: ['First echo message', 'Then ls with &&'],
@@ -516,7 +588,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-34',
         description: 'Scenario: Navigate to /tmp, print "Working in temp directory", then create a temp file.',
         expectedCommand: 'cd /tmp && echo "Working in temp directory" && touch temp_file.txt',
         hints: ['cd /tmp', 'echo message', 'touch temp_file.txt'],
@@ -528,7 +600,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-35',
         description: 'Review: Go home, print welcome message, create directory, enter it, create file.',
         expectedCommand: 'cd ~ && echo "Welcome home!" && mkdir work && cd work && touch task.txt',
         hints: ['cd ~', 'echo message', 'mkdir work', 'cd work', 'touch task.txt'],
@@ -561,8 +633,20 @@ export const lessons: Lesson[] = [
     commands: ['clear'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "clear" - cleans the terminal screen. Try clearing your terminal screen.',
+        id: 'challenge-36',
+        description: 'Learn "clear" - cleans the terminal screen.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-37',
+        description: 'Try clearing your terminal screen.',
         expectedCommand: 'clear',
         hints: ['Type "clear" and press Enter'],
         fileSystemState: {
@@ -573,7 +657,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-38',
         description: 'Now do some work: list files, create a file, then clear screen.',
         expectedCommand: 'ls && touch test.txt && clear',
         hints: ['First ls', 'Then touch test.txt', 'Finally clear'],
@@ -585,7 +669,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-39',
         description: 'Scenario: Print a message, create directory, list contents, then clear.',
         expectedCommand: 'echo "Creating project..." && mkdir myproject && cd myproject && ls && clear',
         hints: ['echo message', 'mkdir myproject', 'cd myproject', 'ls', 'clear'],
@@ -597,7 +681,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-40',
         description: 'Review: Full workflow - go home, print status, create structure, clear.',
         expectedCommand: 'cd ~ && echo "Setting up..." && mkdir -p app/{src,test,docs} && ls app && clear',
         hints: ['cd ~', 'echo message', 'mkdir -p creates parent dirs', 'ls app', 'clear'],
@@ -630,7 +714,19 @@ export const lessons: Lesson[] = [
     commands: ['pwd', 'ls', 'cd', 'cat', 'touch', 'mkdir', 'echo', 'clear'],
     challenges: [
       {
-        id: 'challenge-1',
+        id: 'challenge-41',
+        description: 'Time to review! You\'ll practice all commands in realistic scenarios.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-42',
         description: 'Scenario 1: Check where you are, then list files.',
         expectedCommand: 'pwd && ls',
         hints: ['First pwd', 'Then ls'],
@@ -646,7 +742,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-43',
         description: 'Scenario 2: Navigate to documents, create a todo file, read it.',
         expectedCommand: 'cd documents && touch todo.txt && echo "Buy milk" > todo.txt && cat todo.txt',
         hints: ['cd documents', 'touch todo.txt', 'echo content into file', 'cat to read'],
@@ -660,7 +756,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-44',
         description: 'Scenario 3: Go home, create project structure, verify.',
         expectedCommand: 'cd ~ && mkdir -p myproject/{src,docs,tests} && ls myproject',
         hints: ['cd ~ goes home', 'mkdir -p creates nested dirs', 'ls myproject shows result'],
@@ -672,7 +768,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-45',
         description: 'Scenario 4: In project, create files, list, then clean screen.',
         expectedCommand: 'cd myproject && touch src/main.py docs/README.md && ls -R && clear',
         hints: ['cd myproject', 'touch multiple files', 'ls -R shows recursively', 'clear screen'],
@@ -686,7 +782,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-6',
+        id: 'challenge-46',
         description: 'Final review: Complete setup with messages and verification.',
         expectedCommand: 'echo "Project setup complete" && pwd && ls && echo "All done!" && clear',
         hints: ['echo message', 'pwd shows location', 'ls shows files', 'final echo', 'clear'],
@@ -719,7 +815,19 @@ export const lessons: Lesson[] = [
     commands: ['all'],
     challenges: [
       {
-        id: 'challenge-1',
+        id: 'challenge-47',
+        description: 'Final exam! You\'ll complete a real-world project setup.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to begin'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-48',
         description: 'Task 1: Create a new project folder "cli-app".',
         expectedCommand: 'mkdir cli-app',
         hints: ['mkdir cli-app'],
@@ -731,7 +839,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-49',
         description: 'Task 2: Enter the project and create standard directories.',
         expectedCommand: 'cd cli-app && mkdir src docs tests',
         hints: ['cd cli-app', 'mkdir src docs tests'],
@@ -745,7 +853,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-50',
         description: 'Task 3: Create a README with project description.',
         expectedCommand: 'echo "# CLI Master App\nA terminal learning tool." > README.md',
         hints: ['echo content into README.md'],
@@ -757,7 +865,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-51',
         description: 'Task 4: Create a main script and config file.',
         expectedCommand: 'touch src/main.sh src/config.json',
         hints: ['touch can create multiple files'],
@@ -773,7 +881,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-6',
+        id: 'challenge-52',
         description: 'Task 5: Verify setup by listing all files recursively.',
         expectedCommand: 'ls -R',
         hints: ['ls -R shows all files and directories'],
@@ -787,7 +895,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-7',
+        id: 'challenge-53',
         description: 'Task 6: Final check - print completion message and clear.',
         expectedCommand: 'echo "Project setup complete!" && pwd && clear',
         hints: ['echo message', 'pwd shows location', 'clear cleans screen'],
@@ -821,7 +929,7 @@ export const lessons: Lesson[] = [
     commands: ['pwd', 'ls', 'cd', 'cat'],
     challenges: [
       {
-        id: 'challenge-1',
+        id: 'challenge-54',
         description: 'Exercise 1: Check your location and list files.',
         expectedCommand: 'pwd && ls',
         hints: ['First pwd, then ls with &&'],
@@ -837,7 +945,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-55',
         description: 'Exercise 2: Navigate to review directory and read notes.txt.',
         expectedCommand: 'cd review && cat notes.txt',
         hints: ['cd review to enter directory', 'cat notes.txt to read file'],
@@ -851,7 +959,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-56',
         description: 'Exercise 3: Go home, create practice file with content.',
         expectedCommand: 'cd ~ && touch practice.txt && echo "Practice makes perfect" > practice.txt && cat practice.txt',
         hints: ['cd ~ goes home', 'touch creates file', 'echo adds content', 'cat reads it'],
@@ -863,7 +971,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-57',
         description: 'Exercise 4: Navigate to /tmp, create test directory.',
         expectedCommand: 'cd /tmp && ls && mkdir test_review && cd test_review && pwd',
         hints: ['cd /tmp', 'ls shows empty', 'mkdir test_review', 'cd test_review', 'pwd confirms'],
@@ -896,7 +1004,7 @@ export const lessons: Lesson[] = [
     commands: ['all'],
     challenges: [
       {
-        id: 'challenge-1',
+        id: 'challenge-58',
         description: 'Exercise 1: Create nested project directory structure.',
         expectedCommand: 'mkdir -p project/{src/{utils,lib},docs,config}',
         hints: ['mkdir -p creates parent directories', '{} creates multiple at once'],
@@ -908,7 +1016,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-59',
         description: 'Exercise 2: Enter project and create configuration files.',
         expectedCommand: 'cd project && touch config/settings.json src/main.py docs/README.md',
         hints: ['cd project', 'touch can create multiple files'],
@@ -922,7 +1030,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-60',
         description: 'Exercise 3: Add README content and list recursively.',
         expectedCommand: 'echo "# My Project\\nA CLI learning tool." > docs/README.md && ls -R',
         hints: ['echo with > writes to file', '\\n creates new line', 'ls -R shows recursively'],
@@ -934,7 +1042,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-61',
         description: 'Exercise 4: Clean up and print completion.',
         expectedCommand: 'cd ~ && echo "Project setup complete!" && clear',
         hints: ['cd ~ goes home', 'echo prints message', 'clear cleans terminal'],
@@ -967,8 +1075,26 @@ export const lessons: Lesson[] = [
     commands: ['find', 'locate'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "find" - searches for files matching criteria. Find all .txt files in current directory.',
+        id: 'challenge-62',
+        description: 'Learn "find" - searches for files matching criteria.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [
+            { name: 'notes.txt', content: 'Important notes', permissions: 'rw-r--r--', owner: 'user', group: 'users' },
+            { name: 'todo.md', content: '# Todo', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
+          ],
+          directories: [
+            { name: 'documents', permissions: 'rwxr-xr-x', owner: 'user', group: 'users' },
+            { name: 'downloads', permissions: 'rwxr-xr-x', owner: 'user', group: 'users' }
+          ],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-63',
+        description: 'Find all .txt files in current directory.',
         expectedCommand: 'find . -name "*.txt"',
         hints: ['find . searches current directory', '-name "*.txt" matches .txt files'],
         fileSystemState: {
@@ -984,7 +1110,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-64',
         description: 'Find files modified in last 7 days.',
         expectedCommand: 'find . -mtime -7',
         hints: ['-mtime -7 finds files modified within 7 days'],
@@ -998,7 +1124,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-65',
         description: 'Find and list directories (not files).',
         expectedCommand: 'find . -type d',
         hints: ['-type d finds directories only'],
@@ -1013,7 +1139,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-66',
         description: 'Find files larger than 1MB and list details.',
         expectedCommand: 'find . -size +1M -ls',
         hints: ['-size +1M finds files >1MB', '-ls lists detailed info'],
@@ -1050,8 +1176,22 @@ export const lessons: Lesson[] = [
     commands: ['grep'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "grep" - searches for patterns within files. Search for "ERROR" in server.log.',
+        id: 'challenge-67',
+        description: 'Learn "grep" - searches for patterns within files.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [
+            { name: 'server.log', content: 'ERROR: Database connection failed\nINFO: Server started\nERROR: Timeout occurred\nINFO: User logged in', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
+          ],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-68',
+        description: 'Search for "ERROR" in server.log.',
         expectedCommand: 'grep "ERROR" server.log',
         hints: ['grep "pattern" file'],
         fileSystemState: {
@@ -1064,7 +1204,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-69',
         description: 'Search for "INFO" (case-insensitive).',
         expectedCommand: 'grep -i "info" server.log',
         hints: ['-i makes search case-insensitive'],
@@ -1078,7 +1218,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-70',
         description: 'Count occurrences of "ERROR".',
         expectedCommand: 'grep -c "ERROR" server.log',
         hints: ['-c counts matching lines'],
@@ -1092,7 +1232,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-71',
         description: 'Search recursively in all files.',
         expectedCommand: 'grep -r "TODO" .',
         hints: ['-r searches recursively', '. = current directory'],
@@ -1132,8 +1272,22 @@ export const lessons: Lesson[] = [
     commands: ['sed', 'awk', 'cut'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "sed" - stream editor for text transformation. Replace "apple" with "apricot" in data.txt.',
+        id: 'challenge-72',
+        description: 'Learn "sed" - stream editor for text transformation.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [
+            { name: 'data.txt', content: 'apple\nbanana\ncherry\ndate\nelderberry', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
+          ],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-73',
+        description: 'Replace "apple" with "apricot" in data.txt.',
         expectedCommand: 'sed "s/apple/apricot/" data.txt',
         hints: ['sed "s/old/new/" file'],
         fileSystemState: {
@@ -1146,7 +1300,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-74',
         description: 'Delete lines containing "cherry".',
         expectedCommand: 'sed "/cherry/d" data.txt',
         hints: ['/pattern/d deletes matching lines'],
@@ -1160,8 +1314,22 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
-        description: 'Learn "awk" - pattern scanning and processing. Print first column (names) from users.csv.',
+        id: 'challenge-75',
+        description: 'Learn "awk" - pattern scanning and processing.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [
+            { name: 'users.csv', content: 'John,25,Engineer\nJane,30,Designer\nBob,28,Manager', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
+          ],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-76',
+        description: 'Print first column (names) from users.csv.',
         expectedCommand: 'awk -F"," "{print $1}" users.csv',
         hints: ['-F"," sets field separator', '{print $1} prints first field'],
         fileSystemState: {
@@ -1174,7 +1342,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-6',
+        id: 'challenge-77',
         description: 'Print users older than 27.',
         expectedCommand: 'awk -F"," "$2 > 27 {print $1}" users.csv',
         hints: ['$2 > 27 filters where age > 27'],
@@ -1211,8 +1379,20 @@ export const lessons: Lesson[] = [
     commands: ['ps', 'top', 'kill', 'jobs'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "ps" - shows running processes. List all processes for current user.',
+        id: 'challenge-78',
+        description: 'Learn "ps" - shows running processes.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user', PROCESSES: '["bash","node","python","sleep"]' }
+        }
+      },
+      {
+        id: 'challenge-79',
+        description: 'List all processes for current user.',
         expectedCommand: 'ps aux | grep $USER',
         hints: ['ps aux lists all processes', '| grep $USER filters for current user'],
         fileSystemState: {
@@ -1223,7 +1403,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-80',
         description: 'Show process tree hierarchy.',
         expectedCommand: 'ps -ef --forest',
         hints: ['-ef shows full format', '--forest shows tree view'],
@@ -1235,8 +1415,20 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
-        description: 'Learn "kill" - terminate processes. Send SIGTERM to process (graceful termination).',
+        id: 'challenge-81',
+        description: 'Learn "kill" - terminate processes.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user', PROCESSES: '["bash","node","python","sleep 1000"]' }
+        }
+      },
+      {
+        id: 'challenge-82',
+        description: 'Send SIGTERM to process (graceful termination).',
         expectedCommand: 'kill -TERM 1234',
         hints: ['kill -TERM PID sends terminate signal'],
         fileSystemState: {
@@ -1247,7 +1439,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-83',
         description: 'Force kill process with SIGKILL.',
         expectedCommand: 'kill -KILL 1234',
         hints: ['-KILL forces immediate termination'],
@@ -1284,8 +1476,20 @@ export const lessons: Lesson[] = [
     commands: ['ping', 'curl'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "ping" - test network connectivity to a host. Ping google.com to test internet connectivity.',
+        id: 'challenge-84',
+        description: 'Learn "ping" - test network connectivity to a host.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-85',
+        description: 'Ping google.com to test internet connectivity.',
         expectedCommand: 'ping -c 4 google.com',
         hints: ['ping host sends ICMP packets', '-c 4 sends 4 packets then stops'],
         fileSystemState: {
@@ -1296,8 +1500,20 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
-        description: 'Learn "curl" - transfer data from URLs. Use curl to fetch a webpage and save to file.',
+        id: 'challenge-86',
+        description: 'Learn "curl" - transfer data from URLs.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-87',
+        description: 'Use curl to fetch a webpage and save to file.',
         expectedCommand: 'curl -o example.html https://example.com',
         hints: ['curl URL fetches content', '-o file saves output to file'],
         fileSystemState: {
@@ -1308,7 +1524,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-88',
         description: 'Check HTTP headers with curl.',
         expectedCommand: 'curl -I https://example.com',
         hints: ['-I fetches headers only', 'Shows server info, content type'],
@@ -1320,7 +1536,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
+        id: 'challenge-89',
         description: 'Complete network test: ping then fetch page.',
         expectedCommand: 'ping -c 2 example.com && curl -s https://example.com | head -5',
         hints: ['ping first to test connectivity', 'curl -s silent mode', 'head -5 shows first 5 lines'],
@@ -1355,8 +1571,20 @@ export const lessons: Lesson[] = [
     commands: ['ssh', 'scp'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn "ssh" - secure shell for remote login. Connect to localhost via SSH.',
+        id: 'challenge-90',
+        description: 'Learn "ssh" - secure shell for remote login.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-91',
+        description: 'Connect to localhost via SSH.',
         expectedCommand: 'ssh localhost',
         hints: ['ssh hostname connects to remote host', 'localhost is your own machine'],
         fileSystemState: {
@@ -1367,7 +1595,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-92',
         description: 'Run command remotely via SSH without full login.',
         expectedCommand: 'ssh localhost "ls -la"',
         hints: ['ssh host "command" runs command remotely', 'Quotes around command'],
@@ -1379,8 +1607,22 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
-        description: 'Learn "scp" - secure copy between systems. Copy file to remote system.',
+        id: 'challenge-93',
+        description: 'Learn "scp" - secure copy between systems.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [
+            { name: 'local.txt', content: 'Local file content', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
+          ],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-94',
+        description: 'Copy file to remote system.',
         expectedCommand: 'scp local.txt user@localhost:/tmp/',
         hints: ['scp source destination', 'user@host:path format', '/tmp/ is destination directory'],
         fileSystemState: {
@@ -1393,7 +1635,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-6',
+        id: 'challenge-95',
         description: 'Copy file from remote system.',
         expectedCommand: 'scp user@localhost:/tmp/remote.txt ./',
         hints: ['scp user@host:file destination', './ means current directory'],
@@ -1428,8 +1670,20 @@ export const lessons: Lesson[] = [
     commands: ['jobs', 'bg', 'fg', 'nice', 'nohup'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn about job control - managing background processes. Start a process in background with &.',
+        id: 'challenge-96',
+        description: 'Learn about job control - managing background processes.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-97',
+        description: 'Start a process in background with &.',
         expectedCommand: 'sleep 30 &',
         hints: ['& at end runs process in background', 'Returns job ID'],
         fileSystemState: {
@@ -1440,7 +1694,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-98',
         description: 'List background jobs.',
         expectedCommand: 'jobs',
         hints: ['jobs lists background jobs', 'Shows job numbers and status'],
@@ -1452,7 +1706,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-99',
         description: 'Bring background job to foreground.',
         expectedCommand: 'fg %1',
         hints: ['fg %jobnumber brings job to foreground', '%1 refers to job 1'],
@@ -1464,8 +1718,20 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
-        description: 'Learn "nice" - set process priority. Run command with low priority.',
+        id: 'challenge-100',
+        description: 'Learn "nice" - set process priority.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-101',
+        description: 'Run command with low priority.',
         expectedCommand: 'nice -n 19 sleep 10',
         hints: ['nice -n value command', 'Higher nice value = lower priority', '19 is lowest priority'],
         fileSystemState: {
@@ -1476,7 +1742,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-5',
+        id: 'challenge-102',
         description: 'Use "nohup" to keep process running after logout.',
         expectedCommand: 'nohup sleep 60 &',
         hints: ['nohup command &', 'Process continues after terminal closes', 'Output goes to nohup.out'],
@@ -1511,8 +1777,20 @@ export const lessons: Lesson[] = [
     commands: ['df', 'du', 'free', 'tar', 'gzip'],
     challenges: [
       {
-        id: 'challenge-1',
-        description: 'Learn system monitoring commands. Check disk space with "df".',
+        id: 'challenge-103',
+        description: 'Learn system monitoring commands.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-104',
+        description: 'Check disk space with "df".',
         expectedCommand: 'df -h',
         hints: ['df = disk free', '-h = human readable format', 'Shows filesystem usage'],
         fileSystemState: {
@@ -1523,7 +1801,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-2',
+        id: 'challenge-105',
         description: 'Check directory size with "du".',
         expectedCommand: 'du -sh /var/log',
         hints: ['du = disk usage', '-s = summary total', '-h = human readable', '/var/log = directory to check'],
@@ -1535,7 +1813,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-3',
+        id: 'challenge-106',
         description: 'Check memory usage with "free".',
         expectedCommand: 'free -h',
         hints: ['free = memory usage', '-h = human readable', 'Shows RAM and swap'],
@@ -1547,8 +1825,23 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-4',
-        description: 'Learn "tar" - archive files. Create tar archive.',
+        id: 'challenge-107',
+        description: 'Learn "tar" - archive files.',
+        expectedCommand: 'continue',
+        hints: ['Press Enter to continue'],
+        fileSystemState: {
+          currentPath: '/home/user',
+          files: [
+            { name: 'file1.txt', content: 'Content 1', permissions: 'rw-r--r--', owner: 'user', group: 'users' },
+            { name: 'file2.txt', content: 'Content 2', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
+          ],
+          directories: [],
+          environment: { USER: 'user' }
+        }
+      },
+      {
+        id: 'challenge-108',
+        description: 'Create tar archive.',
         expectedCommand: 'tar -cf archive.tar file1.txt file2.txt',
         hints: ['tar -c create', '-f file specifies archive name', 'List files to include'],
         fileSystemState: {
@@ -1562,7 +1855,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-7',
+        id: 'challenge-109',
         description: 'Extract tar archive.',
         expectedCommand: 'tar -xf archive.tar',
         hints: ['tar -x extract', '-f file archive to extract', 'Extracts to current directory'],
@@ -1576,7 +1869,7 @@ export const lessons: Lesson[] = [
         }
       },
       {
-        id: 'challenge-8',
+        id: 'challenge-110',
         description: 'Create compressed tar archive.',
         expectedCommand: 'tar -czf backup.tar.gz /home/user/documents',
         hints: ['-c create, -z gzip compress, -f file', 'Creates compressed archive'],
@@ -1602,588 +1895,6 @@ export const lessons: Lesson[] = [
           'tar = tape archive for files',
           '-c = create, -x = extract',
           '-z = gzip compression'
-        ]
-      }
-    }
-  },
-  {
-    id: 'lesson-19',
-    title: 'Package Management',
-    description: 'Install and manage software packages',
-    commands: ['apt-get', 'apt', 'dpkg', 'yum', 'dnf'],
-    challenges: [
-      {
-        id: 'challenge-1',
-        description: 'Learn package management commands. Update package lists with "apt-get update".',
-        expectedCommand: 'sudo apt-get update',
-        hints: ['apt-get = Advanced Package Tool', 'update = refresh package lists', 'sudo = run as superuser'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-2',
-        description: 'Search for a package with "apt search".',
-        expectedCommand: 'apt search curl',
-        hints: ['apt = package management tool', 'search = find packages', 'curl = package to search for'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-3',
-        description: 'Install a package with "apt-get install".',
-        expectedCommand: 'sudo apt-get install htop',
-        hints: ['install = install package', 'htop = process viewer', 'sudo required for installation'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-4',
-        description: 'Check installed packages with "dpkg -l".',
-        expectedCommand: 'dpkg -l | grep htop',
-        hints: ['dpkg = Debian package manager', '-l = list packages', 'grep = filter for htop'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-5',
-        description: 'Remove a package with "apt-get remove".',
-        expectedCommand: 'sudo apt-get remove htop',
-        hints: ['remove = uninstall package', 'Keep configuration files', 'sudo required'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-6',
-        description: 'Review: Update, install, then remove a package.',
-        expectedCommand: 'sudo apt-get update && sudo apt-get install nano && sudo apt-get remove nano',
-        hints: ['&& chains commands', 'First update, then install nano, then remove'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      }
-    ],
-    prerequisites: ['lesson-15'],
-    xpReward: 250,
-    visualAid: {
-      type: 'command-flow',
-      data: {
-        teachingPoints: [
-          'apt-get = Debian/Ubuntu package manager',
-          'update = refresh package database',
-          'install = add new software',
-          'remove = uninstall software',
-          'dpkg = lower-level package tool',
-          'sudo = superuser privileges required'
-        ]
-      }
-    }
-  },
-  {
-    id: 'lesson-20',
-    title: 'User & Permission Management',
-    description: 'Manage users, groups, and file permissions',
-    commands: ['useradd', 'usermod', 'passwd', 'chmod', 'chown'],
-    challenges: [
-      {
-        id: 'challenge-1',
-        description: 'Learn user management. Create a new user with "useradd".',
-        expectedCommand: 'sudo useradd testuser',
-        hints: ['useradd = add user', 'testuser = username', 'sudo required for user management'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-2',
-        description: 'Set password for user with "passwd".',
-        expectedCommand: 'sudo passwd testuser',
-        hints: ['passwd = change password', 'testuser = user to modify', 'sudo required'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-3',
-        description: 'Change file permissions with "chmod". Make script executable.',
-        expectedCommand: 'chmod +x myscript.sh',
-        hints: ['chmod = change mode', '+x = add execute permission', 'myscript.sh = file to modify'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [
-            { name: 'myscript.sh', content: '#!/bin/bash\necho "Hello"', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
-          ],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-4',
-        description: 'Change file ownership with "chown". Change owner of a file.',
-        expectedCommand: 'sudo chown testuser myscript.sh',
-        hints: ['chown = change owner', 'testuser = new owner', 'myscript.sh = file', 'sudo required'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [
-            { name: 'myscript.sh', content: '#!/bin/bash\necho "Hello"', permissions: 'rwxr-xr-x', owner: 'user', group: 'users' }
-          ],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-5',
-        description: 'Set specific permissions with numeric mode.',
-        expectedCommand: 'chmod 755 myscript.sh',
-        hints: ['755 = rwxr-xr-x', 'Owner: read/write/execute', 'Others: read/execute'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [
-            { name: 'myscript.sh', content: '#!/bin/bash\necho "Hello"', permissions: 'rwxr-xr-x', owner: 'testuser', group: 'users' }
-          ],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-6',
-        description: 'Review: Create user, set password, change permissions.',
-        expectedCommand: 'sudo useradd guest && sudo passwd guest && chmod 644 shared.txt',
-        hints: ['&& chains commands', 'Create guest user', 'Set password', 'Set file permissions'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [
-            { name: 'shared.txt', content: 'Shared content', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
-          ],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      }
-    ],
-    prerequisites: ['lesson-15'],
-    xpReward: 260,
-    visualAid: {
-      type: 'command-flow',
-      data: {
-        teachingPoints: [
-          'useradd = create new users',
-          'passwd = set passwords',
-          'chmod = change file permissions',
-          'chown = change file ownership',
-          'Permissions: r=read, w=write, x=execute',
-          'Numeric modes: 755 = rwxr-xr-x'
-        ]
-      }
-    }
-  },
-  {
-    id: 'lesson-21',
-    title: 'Shell Scripting Basics',
-    description: 'Write basic shell scripts and automate tasks',
-    commands: ['bash', 'sh', 'chmod'],
-    challenges: [
-      {
-        id: 'challenge-1',
-        description: 'Learn shell scripting basics. Create a simple script with shebang.',
-        expectedCommand: 'echo -e "#!/bin/bash\\necho \\"Hello World\\"" > hello.sh',
-        hints: ['echo -e = interpret escape sequences', '#!/bin/bash = shebang line', '> hello.sh = redirect to file'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-2',
-        description: 'Make script executable and run it.',
-        expectedCommand: 'chmod +x hello.sh && ./hello.sh',
-        hints: ['chmod +x = make executable', './ = run from current directory', '&& = chain commands'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [
-            { name: 'hello.sh', content: '#!/bin/bash\necho "Hello World"', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
-          ],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-3',
-        description: 'Create a script with variables.',
-        expectedCommand: 'echo -e "#!/bin/bash\\nNAME=\\"John\\"\\necho \\"Hello \\$NAME\\"" > greet.sh',
-        hints: ['Variables store values', '$NAME = access variable', 'Use \\ for quotes in echo'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-4',
-        description: 'Script with if statement.',
-        expectedCommand: 'echo -e "#!/bin/bash\\nif [ \\$1 -eq 1 ]; then\\n  echo \\"First argument is 1\\"\\nfi" > check.sh',
-        hints: ['if = conditional', '$1 = first argument', '-eq = equals comparison'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-5',
-        description: 'Create a for loop script.',
-        expectedCommand: 'echo -e "#!/bin/bash\\nfor i in 1 2 3; do\\n  echo \\"Number: \\$i\\"\\ndone" > loop.sh',
-        hints: ['for = loop over items', 'do/done = loop block', '$i = loop variable'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-6',
-        description: 'Run scripts with arguments.',
-        expectedCommand: 'chmod +x check.sh && ./check.sh 1',
-        hints: ['Make executable first', './check.sh 1 = run with argument', 'Argument 1 passed to script'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [
-            { name: 'check.sh', content: '#!/bin/bash\nif [ $1 -eq 1 ]; then\n  echo "First argument is 1"\nfi', permissions: 'rw-r--r--', owner: 'user', group: 'users' }
-          ],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      }
-    ],
-    prerequisites: ['lesson-17'],
-    xpReward: 280,
-    visualAid: {
-      type: 'command-flow',
-      data: {
-        teachingPoints: [
-          '#!/bin/bash = shebang line',
-          'Variables store data',
-          'if = conditional execution',
-          'for = loop over items',
-          'chmod +x = make executable',
-          './script.sh = run script'
-        ]
-      }
-    }
-  },
-  {
-    id: 'lesson-22',
-    title: 'Advanced Text Processing',
-    description: 'Advanced text manipulation with sed, awk, and regular expressions',
-    commands: ['sed', 'awk', 'tr', 'sort', 'uniq'],
-    challenges: [
-      {
-        id: 'challenge-1',
-        description: 'Learn advanced text processing. Replace text with sed.',
-        expectedCommand: 'echo "hello world" | sed "s/world/linux/"',
-        hints: ['sed = stream editor', 's/pattern/replacement/', '| = pipe output'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-2',
-        description: 'Extract fields with awk.',
-        expectedCommand: 'echo "John 25 Engineer" | awk "{print $1}"',
-        hints: ['awk = pattern scanning', '{print $1} = print first field', '$1 = first column'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-3',
-        description: 'Filter lines with grep and regex.',
-        expectedCommand: 'echo -e "test1\\ntest2\\nhello\\ngoodbye" | grep "^test"',
-        hints: ['grep = global regular expression print', '^ = start of line', '^test = lines starting with test'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-4',
-        description: 'Translate characters with tr.',
-        expectedCommand: 'echo "HELLO" | tr "A-Z" "a-z"',
-        hints: ['tr = translate characters', 'A-Z = uppercase letters', 'a-z = lowercase letters'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-5',
-        description: 'Sort and remove duplicates.',
-        expectedCommand: 'echo -e "apple\\norange\\napple\\nbanana" | sort | uniq',
-        hints: ['sort = order lines', 'uniq = remove duplicates', '| = chain commands'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-6',
-        description: 'Advanced sed with multiple operations.',
-        expectedCommand: 'echo "The quick brown fox" | sed -e "s/quick/fast/" -e "s/brown/red/"',
-        hints: ['-e = multiple expressions', 's/quick/fast/ = first replacement', 's/brown/red/ = second replacement'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      }
-    ],
-    prerequisites: ['lesson-12', 'lesson-13'],
-    xpReward: 300,
-    visualAid: {
-      type: 'command-flow',
-      data: {
-        teachingPoints: [
-          'sed = stream editor for text',
-          'awk = pattern scanning language',
-          'grep = search with regex',
-          'tr = translate characters',
-          'sort = order lines',
-          'uniq = remove duplicates'
-        ]
-      }
-    }
-  },
-  {
-    id: 'lesson-23',
-    title: 'System Administration',
-    description: 'System configuration, logging, and maintenance',
-    commands: ['systemctl', 'journalctl', 'cron', 'logrotate', 'sysctl'],
-    challenges: [
-      {
-        id: 'challenge-1',
-        description: 'Learn system administration. Check service status with systemctl.',
-        expectedCommand: 'systemctl status ssh',
-        hints: ['systemctl = control systemd', 'status = check service', 'ssh = service name'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-2',
-        description: 'Start a service with systemctl.',
-        expectedCommand: 'sudo systemctl start ssh',
-        hints: ['start = activate service', 'sudo required for services', 'ssh = SSH service'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-3',
-        description: 'View system logs with journalctl.',
-        expectedCommand: 'sudo journalctl -xe',
-        hints: ['journalctl = view system logs', '-x = extended output', '-e = jump to end'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-4',
-        description: 'Check system kernel parameters.',
-        expectedCommand: 'sysctl -a | grep vm.swappiness',
-        hints: ['sysctl = kernel parameters', '-a = all parameters', 'grep = filter for swappiness'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-5',
-        description: 'View crontab entries.',
-        expectedCommand: 'crontab -l',
-        hints: ['crontab = scheduled tasks', '-l = list entries', 'Shows user cron jobs'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-6',
-        description: 'Review: Check service, view logs, check kernel param.',
-        expectedCommand: 'systemctl status ssh && sudo journalctl -u ssh --since "1 hour ago" && sysctl vm.swappiness',
-        hints: ['&& = chain commands', '-u ssh = filter for ssh logs', '--since = time filter'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      }
-    ],
-    prerequisites: ['lesson-18'],
-    xpReward: 320,
-    visualAid: {
-      type: 'command-flow',
-      data: {
-        teachingPoints: [
-          'systemctl = manage systemd services',
-          'journalctl = view system logs',
-          'sysctl = kernel parameters',
-          'crontab = scheduled tasks',
-          'sudo required for administration',
-          'Services: start, stop, restart, status'
-        ]
-      }
-    }
-  },
-  {
-    id: 'lesson-24',
-    title: 'Networking Advanced',
-    description: 'Advanced network configuration and troubleshooting',
-    commands: ['netstat', 'ss', 'iptables', 'tcpdump', 'nmap', 'route'],
-    challenges: [
-      {
-        id: 'challenge-1',
-        description: 'Learn advanced networking. Check network connections with netstat.',
-        expectedCommand: 'netstat -tulpn',
-        hints: ['netstat = network statistics', '-t = TCP, -u = UDP', '-l = listening ports', '-n = numeric'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-2',
-        description: 'Modern alternative: ss command.',
-        expectedCommand: 'ss -tulpn',
-        hints: ['ss = socket statistics', 'Faster than netstat', 'Same options: -tulpn'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-3',
-        description: 'Check firewall rules with iptables.',
-        expectedCommand: 'sudo iptables -L',
-        hints: ['iptables = firewall', '-L = list rules', 'sudo required'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-4',
-        description: 'Network packet capture with tcpdump.',
-        expectedCommand: 'sudo tcpdump -i eth0 -c 5',
-        hints: ['tcpdump = packet analyzer', '-i eth0 = interface', '-c 5 = capture 5 packets'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-5',
-        description: 'Port scanning with nmap.',
-        expectedCommand: 'nmap -sS localhost',
-        hints: ['nmap = network mapper', '-sS = SYN scan', 'localhost = scan local machine'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      },
-      {
-        id: 'challenge-6',
-        description: 'Review: Check connections, firewall, and routing.',
-        expectedCommand: 'ss -tulpn && sudo iptables -L && route -n',
-        hints: ['&& = chain commands', 'ss for connections', 'iptables for firewall', 'route for routing table'],
-        fileSystemState: {
-          currentPath: '/home/user',
-          files: [],
-          directories: [],
-          environment: { USER: 'user' }
-        }
-      }
-    ],
-    prerequisites: ['lesson-15'],
-    xpReward: 340,
-    visualAid: {
-      type: 'command-flow',
-      data: {
-        teachingPoints: [
-          'netstat/ss = network connections',
-          'iptables = firewall configuration',
-          'tcpdump = packet capture',
-          'nmap = port scanning',
-          'route = routing table',
-          'Network troubleshooting tools'
         ]
       }
     }
@@ -2240,46 +1951,6 @@ export const units: Unit[] = [
     icon: '🔁',
     lessonIds: ['lesson-9', 'lesson-10', 'review-1', 'review-2'],
     color: '#F59E0B'
-  },
-  {
-    id: 'unit-5',
-    name: 'Package & User Management',
-    description: 'Install software and manage users',
-    icon: '📦',
-    lessonIds: ['lesson-19', 'lesson-20'],
-    color: '#8B5CF6'
-  },
-  {
-    id: 'unit-6',
-    name: 'Shell Scripting',
-    description: 'Automate tasks with scripts',
-    icon: '📜',
-    lessonIds: ['lesson-21'],
-    color: '#EC4899'
-  },
-  {
-    id: 'unit-7',
-    name: 'Advanced Text Processing',
-    description: 'Powerful text manipulation tools',
-    icon: '🔍',
-    lessonIds: ['lesson-22'],
-    color: '#14B8A6'
-  },
-  {
-    id: 'unit-8',
-    name: 'System Administration',
-    description: 'System configuration and maintenance',
-    icon: '🖥️',
-    lessonIds: ['lesson-23', 'lesson-24'],
-    color: '#F97316'
-  },
-  {
-    id: 'unit-9',
-    name: 'Networking & Security',
-    description: 'Network configuration and security tools',
-    icon: '🌐',
-    lessonIds: ['lesson-15', 'lesson-16', 'lesson-17', 'lesson-18'],
-    color: '#06D6A0'
   }
 ];
 
